@@ -1,0 +1,12 @@
+# Secrets, never commit these
+service-account.json
+*.key.json
+.env
+
+# Downloaded PDFs and temp files
+/tmp/eman-pdfs/
+*.pdf
+
+# OS / editor cruft
+.DS_Store
+*.swp
