@@ -1,0 +1,24 @@
+{
+  "slack_webhook_url": "https://hooks.slack.com/services/XXX/YYY/ZZZ",
+  "google_service_account_key_path": "/Users/tomasgaluccio/Documents/eman-board-watcher/service-account.json",
+  "sources": [
+    {
+      "name": "Example Charter School",
+      "type": "website",
+      "index_url": "https://example-school.org/board/minutes"
+    },
+    {
+      "name": "Example EMO Drive Folder",
+      "type": "drive_api",
+      "folder_id": "1AbCdEfGhIjKlMnOpQrStUvWxYz",
+      "note": "Folder ID is the part after /folders/ in the Drive URL. Must be shared with the service account email below as Viewer."
+    },
+    {
+      "name": "Example School With Year Subfolders",
+      "type": "drive_api",
+      "folder_id": "1ZyXwVuTsRqPoNmLkJiHgFeDcBa",
+      "note": "If minutes live in year-based subfolders, point folder_id at the parent and let the agent list subfolders, take the most recently modified one, then list files inside it."
+    }
+  ],
+  "service_account_email": "eman-board-watcher@your-project.iam.gserviceaccount.com"
+}
