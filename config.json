@@ -1,24 +1,1445 @@
 {
-  "slack_webhook_url": "https://hooks.slack.com/services/XXX/YYY/ZZZ",
-  "google_service_account_key_path": "/Users/tomasgaluccio/Documents/eman-board-watcher/service-account.json",
+  "slack_webhook_url": "USE_ENV:SLACK_WEBHOOK_URL",
   "sources": [
     {
-      "name": "Example Charter School",
+      "name": "Michigan Online School",
       "type": "website",
-      "index_url": "https://example-school.org/board/minutes"
+      "index_url": "https://michiganonlineschool.com/archived-board-meetings-minutes/"
     },
     {
-      "name": "Example EMO Drive Folder",
-      "type": "drive_api",
-      "folder_id": "1AbCdEfGhIjKlMnOpQrStUvWxYz",
-      "note": "Folder ID is the part after /folders/ in the Drive URL. Must be shared with the service account email below as Viewer."
+      "name": "Branch Line School",
+      "type": "website",
+      "index_url": "https://branchlineschool.org/the-school/transparency-reporting-4/"
     },
     {
-      "name": "Example School With Year Subfolders",
+      "name": "Grand Traverse Academy",
+      "type": "website",
+      "index_url": "https://www.mygta.us/page/board-members-and-meeting-dates"
+    },
+    {
+      "name": "Battle Creek Area Learning Center",
+      "type": "website",
+      "index_url": "https://www.battlecreekpublicschools.org/about/boardofeducation/meeting-minutes"
+    },
+    {
+      "name": "Eaton Academy",
+      "type": "website",
+      "index_url": "https://4.files.edl.io/01ca/03/17/26/143558-9b3deab6-83ee-438d-a706-ef497df5b5f8.pdf"
+    },
+    {
+      "name": "Detroit Innovation Academy",
+      "type": "website",
+      "index_url": "https://www.diachampion.org/apps/pages/index.jsp?uREC_ID=2714121&type=d&pREC_ID=2638560"
+    },
+    {
+      "name": "Walden Green Montessori",
+      "type": "website",
+      "index_url": "https://www.waldengreen.org/wgm-board"
+    },
+    {
+      "name": "Waterford Montessori Academy - Elizabeth Lake",
       "type": "drive_api",
-      "folder_id": "1ZyXwVuTsRqPoNmLkJiHgFeDcBa",
-      "note": "If minutes live in year-based subfolders, point folder_id at the parent and let the agent list subfolders, take the most recently modified one, then list files inside it."
+      "folder_id": "1sl_gdanBpWy5FHwdxVFrGRzc9ANQChJP"
+    },
+    {
+      "name": "Waterford Montessori Academy - Midland Avenue",
+      "type": "drive_api",
+      "folder_id": "1sl_gdanBpWy5FHwdxVFrGRzc9ANQChJP"
+    },
+    {
+      "name": "Barber Prepatory Academy",
+      "type": "website",
+      "index_url": "https://barberprep.org/school-board-agendas-minutes/"
+    },
+    {
+      "name": "Woodland School",
+      "type": "website",
+      "index_url": "https://www.woodlandschooltc.org/transparency-reporting"
+    },
+    {
+      "name": "Old Mission Peninsula School",
+      "type": "website",
+      "index_url": "https://www.ompschool.org/who-we-are/school-board/"
+    },
+    {
+      "name": "Black River Public School (6 - 12)",
+      "type": "website",
+      "index_url": "https://www.blackriverpublicschool.org/about/board-of-trustees/board-meeting-minutes"
+    },
+    {
+      "name": "Black River Public School (K - 5)",
+      "type": "website",
+      "index_url": "https://www.blackriverpublicschool.org/about/board-of-trustees/board-meeting-minutes"
+    },
+    {
+      "name": "Gerald Dawkins Academy",
+      "type": "website",
+      "index_url": "https://dawkinsacademy.org/board-meetings/"
+    },
+    {
+      "name": "Casman Academy",
+      "type": "website",
+      "index_url": "https://casman.org/index.php/administration/board-of-education/"
+    },
+    {
+      "name": "Jackson Preparatory & Early College",
+      "type": "website",
+      "index_url": "https://www.jacksonpec.org/board-of-governors/board-of-governors-meeting-minutes/"
+    },
+    {
+      "name": "Success Virtual Learning Centers of Michigan",
+      "type": "website",
+      "index_url": "https://www.successmichigan.org/transparency"
+    },
+    {
+      "name": "Bridge Academy East",
+      "type": "website",
+      "index_url": "https://www.gee-edu.com/schools/bridgeeast/about-us/school-board"
+    },
+    {
+      "name": "Bridge Academy West",
+      "type": "website",
+      "index_url": "https://www.gee-edu.com/schools/bridgeeast/about-us/school-board"
+    },
+    {
+      "name": "Central Academy",
+      "type": "website",
+      "index_url": "https://www.gee-edu.com/schools/central/about-us/school-board"
+    },
+    {
+      "name": "Frontier International Academy (Detroit)",
+      "type": "website",
+      "index_url": "https://www.gee-edu.com/schools/frontier-detroit/about-us/school-board"
+    },
+    {
+      "name": "Frontier International Academy (Warren)",
+      "type": "website",
+      "index_url": "https://www.gee-edu.com/schools/frontier-warren/about-us/school-board"
+    },
+    {
+      "name": "GEE Compass Academy",
+      "type": "website",
+      "index_url": "https://www.gee-edu.com/schools/compass/about-us/school-board"
+    },
+    {
+      "name": "Global Heights Academy",
+      "type": "website",
+      "index_url": "https://www.gee-edu.com/schools/globalheights/about-us/school-board"
+    },
+    {
+      "name": "Global Tech Academy",
+      "type": "website",
+      "index_url": "https://www.gee-edu.com/schools/globaltech/about-us/school-board"
+    },
+    {
+      "name": "Pittsfield Acres Academy",
+      "type": "website",
+      "index_url": "https://www.gee-edu.com/schools/pittsfieldacres/about-us/school-board"
+    },
+    {
+      "name": "Red Oak Academy",
+      "type": "website",
+      "index_url": "https://www.gee-edu.com/schools/redoak/about-us/school-board"
+    },
+    {
+      "name": "Riverside Academy East",
+      "type": "website",
+      "index_url": "https://www.gee-edu.com/schools/riversideeast/about-us/school-board"
+    },
+    {
+      "name": "Riverside Academy West",
+      "type": "website",
+      "index_url": "https://www.gee-edu.com/schools/riversidewest/about-us/school-board"
+    },
+    {
+      "name": "Covenant High School Central",
+      "type": "website",
+      "index_url": "https://www.covenantschoolsmi.org/about-us/transparency-reporting/transparency-reporting-detroit/board-minutes-detroit"
+    },
+    {
+      "name": "Covenant High School East",
+      "type": "website",
+      "index_url": "https://www.covenantschoolsmi.org/about-us/transparency-reporting/transparency-reporting-detroit/board-minutes-detroit"
+    },
+    {
+      "name": "Covenant High School Grand Rapids",
+      "type": "website",
+      "index_url": "https://www.covenantschoolsmi.org/about-us/transparency-reporting/transparency-reporting-grand-rapids/board-minutes-grand-rapids"
+    },
+    {
+      "name": "Covenant High School Southwest",
+      "type": "website",
+      "index_url": "https://www.covenantschoolsmi.org/about-us/transparency-reporting/transparency-reporting-detroit/board-minutes-detroit"
+    },
+    {
+      "name": "Covenant School Spectrum",
+      "type": "website",
+      "index_url": "https://www.covenantschoolsmi.org/about-us/transparency-reporting/transparency-reporting-detroit/board-minutes-detroit"
+    },
+    {
+      "name": "Youth Advancement Academy",
+      "type": "website",
+      "index_url": "https://www.kresa.org/pages/programs-services/youth-advancement-academy/board-of-directors"
+    },
+    {
+      "name": "Detroit Service Learning Academy",
+      "type": "website",
+      "index_url": "https://detroitsla.org/dlsa-board/"
+    },
+    {
+      "name": "Redford Service Learning Academy",
+      "type": "website",
+      "index_url": "https://redfordsla.org/dsla-board/"
+    },
+    {
+      "name": "Oak Park Service Learning Academy",
+      "type": "website",
+      "index_url": "https://oakparksla.org/dsla-board/"
+    },
+    {
+      "name": "North Star Montessori Academy",
+      "type": "website",
+      "index_url": "https://northstaracademymqt.com/school-board-members-meetings/"
+    },
+    {
+      "name": "Pace Academy",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/GDR/Oakland-Schools/PSA/Dr-Joseph-F-Pollack-Academic-Center-of-Excellence?banner=headingMultiYear"
+    },
+    {
+      "name": "Muskegon Heights Academy",
+      "type": "website",
+      "index_url": "https://muskegonlakeshorehs.org/board/#brd-minutes"
+    },
+    {
+      "name": "Flat River Academy",
+      "type": "website",
+      "index_url": "https://www.flatriveracademy.org/school-board"
+    },
+    {
+      "name": "Arbor Academy",
+      "type": "website",
+      "index_url": "https://arboracademy.org/board-of-directors/"
+    },
+    {
+      "name": "Hillsdale Preparatory School",
+      "type": "website",
+      "index_url": "https://www.hillsdaleprep.org/page/board-members-and-minutes"
+    },
+    {
+      "name": "Chatfield School",
+      "type": "website",
+      "index_url": "https://www.chatfieldschool.org/AboutUs/Board-of-Directors.aspx"
+    },
+    {
+      "name": "Landmark Academy",
+      "type": "website",
+      "index_url": "https://landmarkacademy.net/bod-agenda-and-minutes/"
+    },
+    {
+      "name": "East Shore Leadership Academy",
+      "type": "website",
+      "index_url": "https://eastshoreleaders.com/board-of-directors-agenda-minutes/"
+    },
+    {
+      "name": "Oakland Academy",
+      "type": "website",
+      "index_url": "https://oaklandacademy.org/bod-agenda-and-minutes/"
+    },
+    {
+      "name": "Uplift Michigan Online School",
+      "type": "website",
+      "index_url": "https://uplift-mi.org/schedule-agenda-minutes/"
+    },
+    {
+      "name": "Faxon Academy",
+      "type": "website",
+      "index_url": "https://www.faxonlia.org/Governing-Board"
+    },
+    {
+      "name": "Star International Academy (Dearborn Heights)",
+      "type": "website",
+      "index_url": "https://www.starpsa.org/board-of-directors/"
+    },
+    {
+      "name": "Star International Academy (Canton)",
+      "type": "website",
+      "index_url": "https://www.starpsa.org/board-of-directors/"
+    },
+    {
+      "name": "iCademy",
+      "type": "website",
+      "index_url": "https://icademyglobal.org/board/"
+    },
+    {
+      "name": "Innocademy Zeeland",
+      "type": "website",
+      "index_url": "https://innocademy.com/board/"
+    },
+    {
+      "name": "Innocademy Allegan",
+      "type": "website",
+      "index_url": "https://allegan.innocademy.com/board/"
+    },
+    {
+      "name": "Blended Learning Academies Credit Recovery High School - Lansing Campus",
+      "type": "website",
+      "index_url": "https://www.blendedlearningacademies.org/school-board/board-minutes/"
+    },
+    {
+      "name": "Blended Learning Academies Credit Recovery High School - Livonia Campus",
+      "type": "website",
+      "index_url": "https://www.blendedlearningacademies.org/school-board/board-minutes/"
+    },
+    {
+      "name": "Hope Academy of West Michigan",
+      "type": "website",
+      "index_url": "https://www.hopeacademywm.org/about-hawm/board-of-directors/"
+    },
+    {
+      "name": "Lighthouse Academy - Eagle Village",
+      "type": "website",
+      "index_url": "https://www.lighthouseacademyschool.org/about-lighthouse/board-of-directors/"
+    },
+    {
+      "name": "Lighthouse Academy - Ottawa Juvenile Detention Center",
+      "type": "website",
+      "index_url": "https://www.lighthouseacademyschool.org/about-lighthouse/board-of-directors/"
+    },
+    {
+      "name": "Lighthouse Academy - South Campus",
+      "type": "website",
+      "index_url": "https://www.lighthouseacademyschool.org/about-lighthouse/board-of-directors/"
+    },
+    {
+      "name": "Lighthouse Academy - The Port",
+      "type": "website",
+      "index_url": "https://www.lighthouseacademyschool.org/about-lighthouse/board-of-directors/"
+    },
+    {
+      "name": "Lighthouse Academy - Waalkes",
+      "type": "website",
+      "index_url": "https://www.lighthouseacademyschool.org/about-lighthouse/board-of-directors/"
+    },
+    {
+      "name": "Lighthouse Academy - Juvenile Justice Institute",
+      "type": "website",
+      "index_url": "https://www.lighthouseacademyschool.org/about-lighthouse/board-of-directors/"
+    },
+    {
+      "name": "Lighthouse Academy - Barry County Community Building",
+      "type": "website",
+      "index_url": "https://www.lighthouseacademyschool.org/about-lighthouse/board-of-directors/"
+    },
+    {
+      "name": "Lighthouse Academy - Muskegon Community Building",
+      "type": "website",
+      "index_url": "https://www.lighthouseacademyschool.org/about-lighthouse/board-of-directors/"
+    },
+    {
+      "name": "Lighthouse Academy - The Pier",
+      "type": "website",
+      "index_url": "https://www.lighthouseacademyschool.org/about-lighthouse/board-of-directors/"
+    },
+    {
+      "name": "David Ellis Academy",
+      "type": "website",
+      "index_url": "https://dea-detroit.edlioschool.com/apps/pages/index.jsp?uREC_ID=351818&type=d&pREC_ID=763134"
+    },
+    {
+      "name": "David Ellis Academy West",
+      "type": "website",
+      "index_url": "https://deawest.edlioschool.com/apps/pages/index.jsp?uREC_ID=351860&type=d&pREC_ID=763244"
+    },
+    {
+      "name": "Washington-Parks Academy",
+      "type": "website",
+      "index_url": "https://cornerstoneschools.org/wpa-transparency-reporting-board-meetings/"
+    },
+    {
+      "name": "Jefferson-Douglass Academy",
+      "type": "website",
+      "index_url": "https://cornerstoneschools.org/jda-board-meeting-minutes-agendas-notices/"
+    },
+    {
+      "name": "Madison-Carver Academy",
+      "type": "website",
+      "index_url": "https://cornerstoneschools.org/mca-transparency-reporting-board-meetings/"
+    },
+    {
+      "name": "Lincoln-King High Shool",
+      "type": "website",
+      "index_url": "https://cornerstoneschools.org/lkaya-board-meeting-minutes-agendas-notices/"
+    },
+    {
+      "name": "Adams-Young Middle School",
+      "type": "website",
+      "index_url": "https://cornerstoneschools.org/lkaya-board-meeting-minutes-agendas-notices/"
+    },
+    {
+      "name": "Adams-Young Elementary",
+      "type": "website",
+      "index_url": "https://cornerstoneschools.org/lkaya-board-meeting-minutes-agendas-notices/"
+    },
+    {
+      "name": "Concord Academy - Petoskey",
+      "type": "website",
+      "index_url": "https://www.concordpetoskey.com/school-board"
+    },
+    {
+      "name": "Concord Academy - Boyne",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/NLPR/Charlevoix-Emmet-ISD/PSA/Concord-Academy-Boyne?banner=headingMultiYear"
+    },
+    {
+      "name": "State Street Academy",
+      "type": "website",
+      "index_url": "https://www.statestreetacademy.org/education-for-teachers"
+    },
+    {
+      "name": "Detroit Edison Public School Academy",
+      "type": "website",
+      "index_url": "https://depsa.npfeschools.org/board-of-directors-meetings"
+    },
+    {
+      "name": "Detroit Edison Public School Academy High School",
+      "type": "website",
+      "index_url": "https://depsa.npfeschools.org/board-of-directors-meetings"
+    },
+    {
+      "name": "New Paradigm College Prep",
+      "type": "website",
+      "index_url": "https://collegeprep.npfeschools.org/board-of-directors-calendar"
+    },
+    {
+      "name": "New Paradigm Glazer-Loving Academy (Newly Combined)",
+      "type": "website",
+      "index_url": "https://glazer.npfeschools.org/board-of-directors-meetings"
+    },
+    {
+      "name": "Academy for Business and Technology Elementary",
+      "type": "website",
+      "index_url": "https://www.abtelementary.com/board-of-directors"
+    },
+    {
+      "name": "Academy for Business and Technology MS/HS",
+      "type": "website",
+      "index_url": "https://www.abtelementary.com/board-of-directors"
+    },
+    {
+      "name": "Cesar Chavez Academy Lower Elementary",
+      "type": "drive_api",
+      "folder_id": "1UZcmwPGOGP_Q77hURdT4WxAxCDZScGU-"
+    },
+    {
+      "name": "Cesar Chavez Academy Upper Elementary",
+      "type": "drive_api",
+      "folder_id": "1UZcmwPGOGP_Q77hURdT4WxAxCDZScGU-"
+    },
+    {
+      "name": "Cesar Chavez Academy Middle School",
+      "type": "drive_api",
+      "folder_id": "1UZcmwPGOGP_Q77hURdT4WxAxCDZScGU-"
+    },
+    {
+      "name": "Cesar Chavez Academy High School",
+      "type": "drive_api",
+      "folder_id": "1UZcmwPGOGP_Q77hURdT4WxAxCDZScGU-"
+    },
+    {
+      "name": "Detroit Public Safety Academy",
+      "type": "website",
+      "index_url": "https://www.detroitpsa.com/board-of-directors"
+    },
+    {
+      "name": "Francis Reh Public School Academy",
+      "type": "website",
+      "index_url": "https://www.francisreh.com/board-of-directors"
+    },
+    {
+      "name": "George Crockett Academy",
+      "type": "website",
+      "index_url": "https://www.crockettacademy.com/board-of-directors"
+    },
+    {
+      "name": "Hope Academy",
+      "type": "website",
+      "index_url": "https://www.hopeacademywm.org/about-hawm/board-of-directors/"
+    },
+    {
+      "name": "Joy Preparatory Academy",
+      "type": "website",
+      "index_url": "https://www.joyprep.com/board-of-director"
+    },
+    {
+      "name": "Mildred C. Wells Preparatory Academy",
+      "type": "website",
+      "index_url": "https://www.wellsacademy.com/board-of-directors"
+    },
+    {
+      "name": "Northridge Academy",
+      "type": "website",
+      "index_url": "https://www.northridgeflint.com/board-of-directors"
+    },
+    {
+      "name": "Saginaw Preparatory Academy",
+      "type": "website",
+      "index_url": "https://www.saginawprepacademy.com/boardofdirectors"
+    },
+    {
+      "name": "Michigan International Prep School",
+      "type": "website",
+      "index_url": "https://www.miprepschool.org/board-of-education/"
+    },
+    {
+      "name": "Kalamazoo Covenant Academy",
+      "type": "website",
+      "index_url": "https://kalamazooprepacademy.org/board-of-directors/"
+    },
+    {
+      "name": "Advanced Technology Academy",
+      "type": "website",
+      "index_url": "https://www.atafordpas.org/budget.html"
+    },
+    {
+      "name": "Hanley International Academy",
+      "type": "website",
+      "index_url": "https://www.hanleyacademy.com/index.php/hanley-academy-school-staff/hanley-academy-school-board"
+    },
+    {
+      "name": "Intervention Academy",
+      "type": "website",
+      "index_url": "https://www.intervention-academy.org/about-intervention-academy/board-of-directors"
+    },
+    {
+      "name": "Madison Academy",
+      "type": "website",
+      "index_url": "https://www.madison-academy.org/index.php/madison-academy-school-staff/madison-academy-school-board"
+    },
+    {
+      "name": "Merritt Academy",
+      "type": "website",
+      "index_url": "https://www.merritt-academy.org/index.php/merritt-academy-school-staff/merritt-academy-school-board"
+    },
+    {
+      "name": "Momentum Academy",
+      "type": "website",
+      "index_url": "https://www.momentumacademy.org/index.php/momentum-academy-school-staff/momentum-academy-school-board"
+    },
+    {
+      "name": "Tipton Academy PK-3",
+      "type": "website",
+      "index_url": "https://www.tipton-academy.org/index.php/tipton-academy-school-staff/tipton-academy-school-board"
+    },
+    {
+      "name": "Tipton Academy 4-8",
+      "type": "website",
+      "index_url": "https://www.tipton-academy.org/index.php/tipton-academy-school-staff/tipton-academy-school-board"
+    },
+    {
+      "name": "Trillium Academy",
+      "type": "website",
+      "index_url": "https://www.trilliumacademy.us/index.php/about-us/board-of-directors"
+    },
+    {
+      "name": "Voyageur Academy",
+      "type": "website",
+      "index_url": "https://voyageuracademy.ss5.sharpschool.com/about_us/board_of_directors/transparency_reporting"
+    },
+    {
+      "name": "Voyageur College Prep High School",
+      "type": "website",
+      "index_url": "https://voyageuracademy.ss5.sharpschool.com/about_us/board_of_directors/transparency_reporting"
+    },
+    {
+      "name": "Arbor Preparatory High School",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/arbor-prep-high-school/en/board-documents"
+    },
+    {
+      "name": "Bradford Academy",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/GDR/Oakland-Schools/PSA/Bradford-Academy"
+    },
+    {
+      "name": "Detroit Community Schools - Elementary",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/GDR/Wayne-RESA/PSA/Detroit-Community-Schools?banner=headingMultiYear"
+    },
+    {
+      "name": "Learn4Life Pontiac (f/k/a Flex High School of Pontiac)",
+      "type": "website",
+      "index_url": "https://app2.boardontrack.com/public/fG3enO/year"
+    },
+    {
+      "name": "Fortis Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/fortis-academy/en/board-documents"
+    },
+    {
+      "name": "Great Oaks Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/great-oaks-academy/en/board-documents"
+    },
+    {
+      "name": "Hamtramck Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/hamtramck-academy/en/board-documents"
+    },
+    {
+      "name": "Holly Park Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/holly-park-academy/en/board-documents"
+    },
+    {
+      "name": "Keystone Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/keystone-academy/en/board-documents"
+    },
+    {
+      "name": "Laurus Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/laurus-academy/en/board-documents"
+    },
+    {
+      "name": "Leelanau Montessori Public School Academy",
+      "type": "website",
+      "index_url": "https://www.leelanaumontessori.org/board-of-directors"
+    },
+    {
+      "name": "Multicultural Academy",
+      "type": "website",
+      "index_url": "https://www.macademyk12.com/about-us/the-board.html"
+    },
+    {
+      "name": "Oakside Prep Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/oakside-prep-academy/en/board-documents"
+    },
+    {
+      "name": "Ojibwe Charter School",
+      "type": "website",
+      "index_url": "https://ojibwe.eupschools.org/"
+    },
+    {
+      "name": "Paramount Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/paramount-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Plymouth Scholars Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/plymouth-scholars-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Prevail Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/prevail-academy/en/board-documents"
+    },
+    {
+      "name": "Richfield Public School Academy",
+      "type": "website",
+      "index_url": "https://www.richfieldpsa.net/apps/pages/index.jsp?uREC_ID=556655&type=d&termREC_ID=&pREC_ID=1065736"
+    },
+    {
+      "name": "River City Scholars Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/river-city-scholars-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Taylor Exemplar Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/taylor-exemplar-academy/en/board-documents"
+    },
+    {
+      "name": "Three Oaks Public School Academy",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/WCR/Muskegon-Area-ISD/PSA/Three-Oaks-Public-School-Academy?banner=headingMultiYear"
+    },
+    {
+      "name": "Triumph Academy",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/WCR/Muskegon-Area-ISD/PSA/Three-Oaks-Public-School-Academy"
+    },
+    {
+      "name": "University Yes Academy",
+      "type": "website",
+      "index_url": "https://uya.npfeschools.org/board-of-directors-meetings"
+    },
+    {
+      "name": "Vista Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/vista-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Wellspring Preparatory High School",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/wellspring-prep-high-school/en/board-documents"
+    },
+    {
+      "name": "Alternative Educational Academy of Ogemaw County",
+      "type": "website",
+      "index_url": "https://www.ogemawaea.net/o/aeaoc/page/business"
+    },
+    {
+      "name": "Bridge Academy of Southwest Michigan",
+      "type": "website",
+      "index_url": "https://www.bridgeacademyswm.org/public-information"
+    },
+    {
+      "name": "Canton Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/canton-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Center Line Preparatory Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/center-line-preparatory-academy/en/board-documents"
+    },
+    {
+      "name": "Byron Center Charter School",
+      "type": "website",
+      "index_url": "https://www.byroncentercharter.org/BCCSBoard.aspx"
+    },
+    {
+      "name": "Detroit Achievement Academy",
+      "type": "website",
+      "index_url": "https://www.detroitachievement.org/school-board"
+    },
+    {
+      "name": "Detroit Prep",
+      "type": "website",
+      "index_url": "https://www.detroitprep.org/school-board"
+    },
+    {
+      "name": "Flint Cultural Center Academy",
+      "type": "website",
+      "index_url": "https://fccacademy.org/school-board/"
+    },
+    {
+      "name": "Black River Public School Elementary",
+      "type": "website",
+      "index_url": "https://www.blackriverpublicschool.org/about/board-of-trustees/board-meeting-minutes"
+    },
+    {
+      "name": "Black River Public School Middle/High",
+      "type": "website",
+      "index_url": "https://www.blackriverpublicschool.org/about/board-of-trustees/board-meeting-minutes"
+    },
+    {
+      "name": "Holly Academy",
+      "type": "website",
+      "index_url": "https://hollyacademymi.sites.thrillshare.com/documents"
+    },
+    {
+      "name": "Cole Academy",
+      "type": "website",
+      "index_url": "https://www.coleacademy.org/board-of-directors/"
+    },
+    {
+      "name": "New Branches Charter Academy",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/WCR/Kent-ISD/PSA/New-Branches-Charter-Academy"
+    },
+    {
+      "name": "Bahweting Anishnabe Public School Academy",
+      "type": "website",
+      "index_url": "https://www.jklschool.org/page/approved-meeting-minutes"
+    },
+    {
+      "name": "Martin Luther King Jr. Education Center Academy",
+      "type": "website",
+      "index_url": "https://mlkecacademy.org/about-us/board-of-the-directors/"
+    },
+    {
+      "name": "Arts Academy in the Woods",
+      "type": "website",
+      "index_url": "https://artsacad.net/about-aaw/board-of-directors/"
+    },
+    {
+      "name": "Bay-Arenac Community High School",
+      "type": "website",
+      "index_url": "https://www.bachs.us/apps/pages/index.jsp?uREC_ID=469817&type=d"
+    },
+    {
+      "name": "Blue Water Middle College",
+      "type": "website",
+      "index_url": "https://www.bluewatermiddlecollege.org/o/bwmc/documents/board-of-trustees/meeting-minutes/22206355"
+    },
+    {
+      "name": "Casman Alternative Academy",
+      "type": "website",
+      "index_url": "https://casman.org/index.php/administration/board-of-education/"
+    },
+    {
+      "name": "Creative Technologies Academy",
+      "type": "website",
+      "index_url": "https://www.ctachargers.org/page/board-member-bio"
+    },
+    {
+      "name": "DeTour Arts and Technology Academy",
+      "type": "website",
+      "index_url": "https://detourata.eupschools.org/o/data/o/data/documents/our-district/school-board/minutes/534556"
+    },
+    {
+      "name": "Grand Rapids Child Discovery Center",
+      "type": "website",
+      "index_url": "https://www.childdiscoverycenter.org/board-minutes-and-agendas"
+    },
+    {
+      "name": "Honey Creek Community School",
+      "type": "website",
+      "index_url": "https://www.honeycreekschool.org/minutes"
+    },
+    {
+      "name": "Joseph K. Lumsden Bahweting Anishnabe Academy",
+      "type": "website",
+      "index_url": "https://www.jklschool.org/page/approved-meeting-minutes"
+    },
+    {
+      "name": "Macomb Academy",
+      "type": "website",
+      "index_url": "https://www.macombacademy.net/boardofdirectors"
+    },
+    {
+      "name": "Presque Isle Academy II",
+      "type": "website",
+      "index_url": "http://www.presqueisleacademy.com/board.html"
+    },
+    {
+      "name": "Relevant Academy of Eaton County",
+      "type": "website",
+      "index_url": "https://relevantacademy.org/about-us/board-of-directors/"
+    },
+    {
+      "name": "Rising Stars Academy",
+      "type": "website",
+      "index_url": "https://www.rising-stars-academy.org/school-info-1"
+    },
+    {
+      "name": "The Greenspire School",
+      "type": "website",
+      "index_url": "https://greenspireschool.org/board/board-of-education/"
+    },
+    {
+      "name": "Three Lakes Academy",
+      "type": "website",
+      "index_url": "https://www.threelakesacademy.com/school-board/school-board-information/board-meeting-minutes"
+    },
+    {
+      "name": "Virtual Learning Academy of St. Clair County",
+      "type": "website",
+      "index_url": "https://www.sccvla.org/o/bwcan/documents/board-of-education/meeting-minutes/22206543"
+    },
+    {
+      "name": "Washtenaw Technical Middle College",
+      "type": "website",
+      "index_url": "https://www.wccnet.edu/wtmc/about/board-minutes/"
+    },
+    {
+      "name": "Academic and Career Education Academy",
+      "type": "website",
+      "index_url": "https://www.aceaofmidland.com/district"
+    },
+    {
+      "name": "Achieve Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/achieve-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Achieve-Detroit",
+      "type": "website",
+      "index_url": "https://www.achievedetroit.org/about/board-of-directors/"
+    },
+    {
+      "name": "Adams-Young Building",
+      "type": "website",
+      "index_url": "https://cornerstoneschools.org/lkaya-board-meeting-minutes-agendas-notices/"
+    },
+    {
+      "name": "American International Academy - Elementary",
+      "type": "website",
+      "index_url": "https://www.americanintlacademy.com/board"
+    },
+    {
+      "name": "American International Academy High School/Middle School",
+      "type": "website",
+      "index_url": "https://www.americanintlacademy.com/board"
+    },
+    {
+      "name": "American International Academy Upper Elementary",
+      "type": "website",
+      "index_url": "https://www.americanintlacademy.com/board"
+    },
+    {
+      "name": "Barber Elementary School",
+      "type": "website",
+      "index_url": "https://barberprep.org/school-board-agendas-minutes/"
+    },
+    {
+      "name": "Battle Creek Montessori Academy",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/SWR/Calhoun-ISD/PSA/Battle-Creek-Montessori-Academy"
+    },
+    {
+      "name": "Benton Harbor Charter School Academy",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/SWR/Berrien-RESA/PSA/Benton-Harbor-Charter-School-Academy"
+    },
+    {
+      "name": "Burton Glen Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/burton-glen-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Canton Preparatory High School",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/canton-prep-high-school/en/board-documents"
+    },
+    {
+      "name": "Cesar Chavez Academy Elementary",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/burton-glen-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Cesar Chavez Academy Intermediate",
+      "type": "website",
+      "index_url": "https://www.azteceaglesk12.com/board-of-directors"
+    },
+    {
+      "name": "Chandler Park Academy - Elementary",
+      "type": "website",
+      "index_url": "https://chandlerparkacademy.net/board-of-directors/"
+    },
+    {
+      "name": "Chandler Park Academy - High School",
+      "type": "website",
+      "index_url": "https://chandlerparkacademy.net/board-of-directors/"
+    },
+    {
+      "name": "Chandler Park Academy - Middle School",
+      "type": "website",
+      "index_url": "https://chandlerparkacademy.net/board-of-directors/"
+    },
+    {
+      "name": "Chandler Woods Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/chandler-woods-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Cole Academy East",
+      "type": "website",
+      "index_url": "https://www.coleacademy.org/board-of-directors/"
+    },
+    {
+      "name": "Cornerstone Jefferson-Douglass Academy",
+      "type": "website",
+      "index_url": "https://cornerstoneschools.org/jda-transparency-reporting/?utm_source=popup&utm_medium=popup&utm_campaign=popup_traffic&utm_term=popup_traffic&utm_content=popup_traffic"
+    },
+    {
+      "name": "Creative Montessori Academy",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/GDR/Wayne-RESA/PSA/Creative-Montessori-Academy"
+    },
+    {
+      "name": "Cross Creek Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/cross-creek-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Crossroads Charter Academy",
+      "type": "website",
+      "index_url": "https://www.ccabr.org/apps/pages/index.jsp?uREC_ID=380701&type=d&pREC_ID=865871"
+    },
+    {
+      "name": "Da Vinci Schools",
+      "type": "website",
+      "index_url": "https://www.davincik12.org/school-board-minutes"
+    },
+    {
+      "name": "Detroit Community Schools - High School",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/GDR/Wayne-RESA/PSA/Detroit-Community-Schools?banner=headingMultiYear"
+    },
+    {
+      "name": "Detroit Enterprise Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/detroit-enterprise-academy/en/board-documents"
+    },
+    {
+      "name": "Detroit Merit Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/detroit-merit-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Detroit Premier Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/detroit-premier-academy/en/board-documents"
+    },
+    {
+      "name": "Dove Academy of Detroit",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/GDR/Wayne-RESA/PSA/Dove-Academy-of-Detroit"
+    },
+    {
+      "name": "Dr. Martin Luther King Academy",
+      "type": "website",
+      "index_url": "https://www.mhtigers.org/school-board/school-budget/"
+    },
+    {
+      "name": "Eagle Crest Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/eagle-crest-charter-academy/en/board-documents"
+    },
+    {
+      "name": "East Arbor Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/east-arbor-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Edgewood Elementary Academy",
+      "type": "website",
+      "index_url": "https://www.mhtigers.org/school-board/school-budget/"
+    },
+    {
+      "name": "Endeavor Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/endeavor-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Excel Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/excel-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Flagship Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/flagship-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Four Corners Montessori Academy",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/GDR/Oakland-Schools/PSA/Four-Corners-Montessori-Academy"
+    },
+    {
+      "name": "George Washington Carver Elementary School",
+      "type": "website",
+      "index_url": "https://www.gwcarveracademy.org/school-board-minutes"
+    },
+    {
+      "name": "George Washington Carver Middle School",
+      "type": "website",
+      "index_url": "https://www.gwcarveracademy.org/school-board-minutes"
+    },
+    {
+      "name": "Grand River Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/grand-river-academy/en/board-documents"
+    },
+    {
+      "name": "Grand River Preparatory High School",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/grand-river-prep-high-school/en/board-documents"
+    },
+    {
+      "name": "Great Lakes Academy",
+      "type": "website",
+      "index_url": "https://greatlakesacademy.org/pages/board-of-directors/"
+    },
+    {
+      "name": "Great Lakes Learning Academy - MS/HS",
+      "type": "website",
+      "index_url": "https://www.connectionsacademy.com/great-lakes-learning-academy/overview/governance/"
+    },
+    {
+      "name": "Grove Montessori: A Wildflower Public School",
+      "type": "website",
+      "index_url": "https://www.grovemontessori.org/board"
+    },
+    {
+      "name": "Highpoint Virtual Academy of MIchigan",
+      "type": "website",
+      "index_url": "https://hvam.k12.com/about-our-school/archive-board-meeting-minutes/"
+    },
+    {
+      "name": "Insight School of Michigan",
+      "type": "website",
+      "index_url": "https://insightmi.k12.com/about-our-school/governing-board/archives-of-board-meeting-minutes/"
+    },
+    {
+      "name": "International Academy of Flint (K-12)",
+      "type": "website",
+      "index_url": "https://www.iafphoenix.org/page/board-of-directors"
+    },
+    {
+      "name": "Ivywood Classical Academy - Genoa Cr. Site",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/GDR/Wayne-RESA/PSA/Ivywood-Classical-Academy?banner=headingMultiYear"
+    },
+    {
+      "name": "Ivywood Classical Academy-Ridge Rd. Site",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/GDR/Wayne-RESA/PSA/Ivywood-Classical-Academy"
+    },
+    {
+      "name": "Kalamazoo Prep Academy",
+      "type": "website",
+      "index_url": "https://kalamazooprepacademy.org/board-of-directors/"
+    },
+    {
+      "name": "Kensington Woods Schools",
+      "type": "website",
+      "index_url": "https://kwoods.org/board"
+    },
+    {
+      "name": "Keys Grace Academy",
+      "type": "website",
+      "index_url": "https://www.keysacademies.com/board"
+    },
+    {
+      "name": "Kingsbury Country Day School",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/GDR/Oakland-Schools/PSA/Kingsbury-Country-Day-School?banner=headingMultiYear"
+    },
+    {
+      "name": "Knapp Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/knapp-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Legacy Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/legacy-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Lighthouse Connections Academy",
+      "type": "website",
+      "index_url": "https://www.connectionsacademy.com/michigan-online-school/overview/governance/"
+    },
+    {
+      "name": "Lincoln-King Adams-Young 6-8",
+      "type": "website",
+      "index_url": "https://cornerstoneschools.org/lkaya-transparency-reporting-2/?utm_source=popup&utm_medium=popup&utm_campaign=popup_traffic&utm_term=popup_traffic&utm_content=popup_traffic"
+    },
+    {
+      "name": "Lincoln-King Adams-Young Academy High School (Grove Campus)",
+      "type": "website",
+      "index_url": "https://cornerstoneschools.org/lkaya-transparency-reporting-2/?utm_source=popup&utm_medium=popup&utm_campaign=popup_traffic&utm_term=popup_traffic&utm_content=popup_traffic"
+    },
+    {
+      "name": "Linden Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/linden-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Livingston Classical Academy",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/SER/Washtenaw-ISD/PSA/Livingston-Classical-Academy?banner=headingMultiYear"
+    },
+    {
+      "name": "Macomb Montessori Academy",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/GDR/Macomb-ISD/PSA/Macomb-Montessori-Academy"
+    },
+    {
+      "name": "Madison Academy - High School",
+      "type": "website",
+      "index_url": "https://www.madison-academy.org/index.php/madison-academy-school-staff/madison-academy-school-board"
+    },
+    {
+      "name": "Madison Academy Elementary/Middle School",
+      "type": "website",
+      "index_url": "https://www.madison-academy.org/index.php/madison-academy-school-staff/madison-academy-school-board"
+    },
+    {
+      "name": "Metro Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/metro-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Michigan Great Lakes Virtual Academy",
+      "type": "website",
+      "index_url": "https://mglva.k12.com/about-our-school/board-of-directors/"
+    },
+    {
+      "name": "Mill Creek Academy",
+      "type": "website",
+      "index_url": "https://www-mca.stjohns.k12.fl.us/sac/"
+    },
+    {
+      "name": "Muskegon Lakeshore High School & Career Center",
+      "type": "website",
+      "index_url": "https://www-mca.stjohns.k12.fl.us/sac/"
+    },
+    {
+      "name": "Muskegon Montessori Academy for Environmental Change",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/WCR/Muskegon-Area-ISD/PSA/Muskegon-Montessori-Academy-for-Environmental-Change"
+    },
+    {
+      "name": "New Paradigm Glazer-Loving Academy",
+      "type": "website",
+      "index_url": "https://glazer.npfeschools.org/board-of-directors-meetings"
+    },
+    {
+      "name": "North Saginaw Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/north-saginaw-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Old Redford Academy - Elementary",
+      "type": "website",
+      "index_url": "https://www.oradistrict.org/board-of-directors"
+    },
+    {
+      "name": "Old Redford Academy - High",
+      "type": "website",
+      "index_url": "https://www.oradistrict.org/about/board-of-directors"
+    },
+    {
+      "name": "Old Redford Academy - Middle School",
+      "type": "website",
+      "index_url": "https://www.oradistrict.org/about/board-of-directors"
+    },
+    {
+      "name": "Outlook Academy - Youth Home Campus",
+      "type": "website",
+      "index_url": "https://www.outlookacademy.net/o/oa/documents/board/meeting-minutes/421004"
+    },
+    {
+      "name": "Paragon Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/paragon-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Pembroke Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/pembroke-academy/en/board-documents"
+    },
+    {
+      "name": "Pillars Academy",
+      "type": "website",
+      "index_url": "https://www.gee-edu.com/schools/pillars/about-us/school-board"
+    },
+    {
+      "name": "Pontiac Academy for Excellence Elementary",
+      "type": "website",
+      "index_url": "https://www.pontiacacademy.org/our-school-board-of-education"
+    },
+    {
+      "name": "Pontiac Academy for Excellence Middle/High",
+      "type": "website",
+      "index_url": "https://www.pontiacacademy.org/our-school-board-of-education"
+    },
+    {
+      "name": "PrepNet Virtual Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/prepnet-virtual-academy/en/board-documents"
+    },
+    {
+      "name": "Presque Isle Academy",
+      "type": "website",
+      "index_url": "http://www.presqueisleacademy.com/board.html"
+    },
+    {
+      "name": "Quest Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/quest-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Reach Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/reach-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Regent Park Scholars Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/regent-park-scholars-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Richfield Public School Academy Early Learning Center PK-2",
+      "type": "website",
+      "index_url": "https://www.richfieldpsa.net/apps/pages/index.jsp?uREC_ID=556655&type=d&termREC_ID=&pREC_ID=1065736"
+    },
+    {
+      "name": "Ridge Park Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/ridge-park-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Saginaw Covenant Academy",
+      "type": "website",
+      "index_url": "https://covenantacademies.org/saginaw/staff-directory/"
+    },
+    {
+      "name": "South Arbor Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/south-arbor-charter-academy/en/board-documents"
+    },
+    {
+      "name": "South Canton Scholars Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/south-canton-scholars-charter-academy/en/board-documents"
+    },
+    {
+      "name": "South Pointe Scholars Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/south-pointe-scholars-charter-academy/en/board-documents"
+    },
+    {
+      "name": "St. Clair County Intervention Academy",
+      "type": "website",
+      "index_url": "https://www.intervention-academy.org/about-intervention-academy/board-of-directors"
+    },
+    {
+      "name": "Star International Academy",
+      "type": "website",
+      "index_url": "https://www.starpsa.org/board-of-directors/"
+    },
+    {
+      "name": "Summit Academy North Elementary School",
+      "type": "website",
+      "index_url": "https://www.summitacademy.com/district/boardsan/"
+    },
+    {
+      "name": "Summit Academy North High School",
+      "type": "website",
+      "index_url": "https://www.summitacademy.com/district/boardsan/"
+    },
+    {
+      "name": "Summit Academy North Middle School",
+      "type": "website",
+      "index_url": "https://www.summitacademy.com/district/boardsan/"
+    },
+    {
+      "name": "Taylor Preparatory High School",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/taylor-prep-high-school/en/board-documents"
+    },
+    {
+      "name": "The Greenspire High School",
+      "type": "website",
+      "index_url": "https://greenspireschool.org/board/board-of-education/"
+    },
+    {
+      "name": "The James and Grace Lee Boggs School",
+      "type": "website",
+      "index_url": "https://boggsschool.org/about-us#board-of-directors"
+    },
+    {
+      "name": "The New Standard Academy",
+      "type": "website",
+      "index_url": "https://www.newstandardflint.org/index.php/new-standard-academy-school-staff/new-standard-academy-school-board"
+    },
+    {
+      "name": "Timberland Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/timberland-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Unity Academy",
+      "type": "website",
+      "index_url": "https://www.gee-edu.com/schools/unity/about-us/school-board"
+    },
+    {
+      "name": "Uplift Michigan Academy",
+      "type": "website",
+      "index_url": "https://uplift-mi.org/schedule-agenda-minutes/"
+    },
+    {
+      "name": "Vanderbilt Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/vanderbilt-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Vanguard Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/vanguard-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Voyageur College Prep",
+      "type": "website",
+      "index_url": "https://consortiumprep.ss5.sharpschool.com/about_us/reports_and_files"
+    },
+    {
+      "name": "Walker Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/walker-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Walton Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/walton-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Warrendale Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/warrendale-charter-academy/en/board-documents"
+    },
+    {
+      "name": "WAY Academy - Flint, Flint Campus",
+      "type": "website",
+      "index_url": "https://www.wayacademyflint.net/about/board"
+    },
+    {
+      "name": "West MI Academy of Environmental Science",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/WCR/Kent-ISD/PSA/West-MI-Academy-of-Environmental-Science?banner=headingMultiYear"
+    },
+    {
+      "name": "West Michigan Academy of Arts and Academics",
+      "type": "website",
+      "index_url": "https://www.westmichiganacademy.org/about-us/board-of-directors/"
+    },
+    {
+      "name": "West Village Academy",
+      "type": "website",
+      "index_url": "https://www.westvillageacademy.org/apps/pages/index.jsp?dir=WVA%20Board%20Meetings/Board%20Meeting%20Minutes&uREC_ID=605458&type=d"
+    },
+    {
+      "name": "Westfield Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/westfield-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Westfield Preparatory High School",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/westfield-preparatory-high-school/en/board-documents"
+    },
+    {
+      "name": "Will Carleton Charter School Academy",
+      "type": "website",
+      "index_url": "https://secure.munetrix.com/n/Michigan/Schools/SER/Hillsdale-ISD/PSA/Will-Carleton-Charter-School-Academy"
+    },
+    {
+      "name": "William C. Abney Academy Elementary",
+      "type": "website",
+      "index_url": "https://www.thewcaa.org/board-of-directors"
+    },
+    {
+      "name": "Windemere Park Charter Academy",
+      "type": "website",
+      "index_url": "https://www.nhaschools.com/schools/windemere-park-charter-academy/en/board-documents"
+    },
+    {
+      "name": "Windover High School",
+      "type": "website",
+      "index_url": "https://windover.org/District/Portal/parent-student-information"
+    },
+    {
+      "name": "Woodland Park Academy",
+      "type": "website",
+      "index_url": "https://www.woodlandparkacademy.org/apps/pages/index.jsp?uREC_ID=2933799&type=d&pREC_ID=2337644"
+    },
+    {
+      "name": "Light of the World Academy",
+      "type": "website",
+      "index_url": "https://www.lightoftheworldacademy.org/page/governing-board"
+    },
+    {
+      "name": "Founders Grove Classical Academy",
+      "type": "website",
+      "index_url": "https://foundersgroveclassicalacademy.com/about/board/"
     }
-  ],
-  "service_account_email": "eman-board-watcher@your-project.iam.gserviceaccount.com"
+  ]
 }
