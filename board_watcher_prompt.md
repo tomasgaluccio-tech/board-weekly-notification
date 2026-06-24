@@ -6,16 +6,14 @@ Read these files first:
 - `state.json`, contains `seen_pdf_urls`, an array of URLs already processed in previous runs. Do NOT re-process or re-alert on these.
 
 ## Handling `drive_api` sources
-Use the Google Drive API directly, no browser needed.
-1. Authenticate using the service account key at `google_service_account_key_path` in config.json.
-2. Call `files.list` with `q="'<folder_id>' in parents and trashed = false"`, requesting `files(id, name, mimeType, modifiedTime, webViewLink)`.
-3. If the returned items include subfolders (mimeType `application/vnd.google-apps.folder`), this is a year-based structure. List the subfolders, sort by name or `modifiedTime`, and recurse into the most recent one to get the actual files.
-4. For each file with `mimeType` of `application/pdf` (or similar document type) whose `webViewLink` is not already in `seen_pdf_urls`:
-   - Download it directly via `https://www.googleapis.com/drive/v3/files/<file_id>?alt=media` with the service account's auth token (use `curl` with a bearer token, or a small script, write to `/tmp/eman-pdfs/<name>.pdf`).
-   - Read the downloaded PDF with the Read tool.
-5. Record the file's `webViewLink` (not the download URL) as the canonical identifier for dedup purposes.
+Use the connected Google Drive connector tools, no browser and no service account needed.
+1. Use the Drive connector's search/list tool to list files within the given `folder_id`, requesting name, file id, mime type, modified time, and a viewable link.
+2. If the returned items include subfolders, this is a year-based structure. List the subfolders, sort by name or modified time, and recurse into the most recent one to get the actual files.
+3. For each file that is a PDF (or similar document type) whose link is not already in `seen_pdf_urls`:
+   - Use the Drive connector's fetch/read tool to retrieve the file's content directly. If the connector only returns a download link rather than content, fetch that link and read the result with the Read tool.
+4. Record the file's stable view link as the canonical identifier for dedup purposes.
 
-If a folder returns a permission error, it likely hasn't been shared with the service account email in config.json yet. Skip it for this run and flag it in your final summary, don't fail the whole task.
+If a folder returns a permission error, it likely isn't shared with the Google account the Drive connector is authorized as. Skip it for this run and flag it in your final summary, don't fail the whole task.
 
 ## Handling `website` sources
 1. For each source with `type: "website"`, fetch the `index_url` page with WebFetch and extract the list of minutes/agenda document URLs (most are PDFs) along with their dates.
